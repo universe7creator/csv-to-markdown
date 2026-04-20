@@ -1,0 +1,14 @@
+{
+  "name": "csv-to-markdown",
+  "version": "1.0.0",
+  "description": "Convert CSV files to beautifully formatted Markdown tables instantly. Perfect for documentation and reports.",
+  "main": "api/process.js",
+  "scripts": {
+    "dev": "node dev-server.js",
+    "vercel-build": "echo 'Build complete'"
+  },
+  "dependencies": {},
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

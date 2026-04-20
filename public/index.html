@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSV to Markdown Pro | Convert CSV to Markdown Tables</title>
+  <meta name="description" content="Convert CSV files to beautifully formatted Markdown tables instantly. Perfect for documentation, README files, and reports.">
+  <meta property="og:title" content="CSV to Markdown Pro">
+  <meta property="og:description" content="Convert CSV files to beautifully formatted Markdown tables instantly">
+  <meta property="og:type" content="website">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'] },
+          colors: {
+            primary: { 50: '#f0fdf4', 100: '#dcfce7', 200: '#bbf7d0', 300: '#86efac', 400: '#4ade80', 500: '#22c55e', 600: '#16a34a', 700: '#15803d', 800: '#166534', 900: '#14532d' },
+            dark: { 50: '#f6f6f6', 100: '#e7e7e7', 200: '#d1d1d1', 300: '#b0b0b0', 400: '#888888', 500: '#6d6d6d', 600: '#5d5d5d', 700: '#4f4f4f', 800: '#454545', 900: '#0a0a0a' }
+          },
+          animation: {
+            'fade-in': 'fadeIn 0.6s ease-out',
+            'slide-up': 'slideUp 0.6s ease-out',
+            'pulse-glow': 'pulseGlow 2s ease-in-out infinite'
+          },
+          keyframes: {
+            fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
+            slideUp: { '0%': { opacity: '0', transform: 'translateY(20px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+            pulseGlow: { '0%, 100%': { boxShadow: '0 0 20px rgba(34, 197, 94, 0.4)' }, '50%': { boxShadow: '0 0 40px rgba(34, 197, 94, 0.6)' } }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { background-color: #0a0a0a; color: #ffffff; }
+    .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+    .gradient-text { background: linear-gradient(135deg, #22c55e, #16a34a); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .glow { box-shadow: 0 0 30px rgba(34, 197, 94, 0.3); }
+    .glow:hover { box-shadow: 0 0 50px rgba(34, 197, 94, 0.5); }
+    textarea:focus { outline: none; box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.5); }
+    .feature-card { transition: all 0.3s ease; }
+    .feature-card:hover { transform: translateY(-5px); background: rgba(255, 255, 255, 0.05); }
+  </style>
+</head>
+<body class="font-sans antialiased overflow-x-hidden">
+  <!-- Navigation -->
+  <nav class="fixed top-0 left-0 right-0 z-50 glass">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center space-x-2">
+          <div class="w-8 h-8 bg-gradient-to-br from-primary-400 to-primary-600 rounded-lg flex items-center justify-center">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+            </svg>
+          </div>
+          <span class="text-xl font-bold">CSV to Markdown</span>
+        </div>
+        <a href="#demo" class="px-4 py-2 text-sm font-medium text-white/80 hover:text-white transition-colors">Try Demo</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary-900/20 via-dark-900 to-dark-900"></div>
+    <div class="relative max-w-4xl mx-auto text-center animate-fade-in">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm text-primary-300 mb-8">
+        <span class="w-2 h-2 bg-primary-400 rounded-full animate-pulse"></span>
+        Professional CSV to Markdown Converter
+      </div>
+      <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight mb-6">
+        Convert CSV to <span class="gradient-text">Markdown</span><br>in Seconds
+      </h1>
+      <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-10">
+        Transform your CSV files into beautifully formatted Markdown tables instantly.
+        Perfect for documentation, README files, and data reports.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#demo" class="px-8 py-4 bg-gradient-to-r from-primary-500 to-primary-600 rounded-xl font-semibold text-white glow hover:scale-105 transition-all duration-300 flex items-center gap-2">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+          Try Free Demo
+        </a>
+        <a href="#pricing" class="px-8 py-4 glass rounded-xl font-semibold text-white hover:bg-white/10 transition-all duration-300">
+          Get Pro — $9
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Demo Section -->
+  <section id="demo" class="py-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl sm:text-4xl font-bold mb-4">Try It Now</h2>
+        <p class="text-gray-400">Paste your CSV data and convert it to Markdown instantly</p>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="glass rounded-2xl p-6">
+          <label class="block text-sm font-medium text-gray-300 mb-3">CSV Input</label>
+          <textarea id="csvInput" class="w-full h-64 bg-dark-800/50 rounded-xl p-4 text-sm font-mono text-gray-300 resize-none border border-white/10" placeholder="Name,Age,City&#10;John,30,New York&#10;Jane,25,Boston&#10;Bob,35,Chicago"></textarea>
+        </div>
+        <div class="glass rounded-2xl p-6">
+          <div class="flex items-center justify-between mb-3">
+            <label class="block text-sm font-medium text-gray-300">Markdown Output</label>
+            <button id="copyBtn" class="text-xs px-3 py-1 bg-primary-600/20 text-primary-400 rounded-lg hover:bg-primary-600/30 transition-colors">Copy</button>
+          </div>
+          <textarea id="mdOutput" class="w-full h-64 bg-dark-800/50 rounded-xl p-4 text-sm font-mono text-gray-300 resize-none border border-white/10" readonly placeholder="| Name | Age | City |&#10;|------|-----|------|&#10;| John | 30 | New York |&#10;| Jane | 25 | Boston |&#10;| Bob | 35 | Chicago |"></textarea>
+        </div>
+      </div>
+      <div class="text-center mt-6">
+        <button id="convertBtn" class="px-8 py-4 bg-gradient-to-r from-primary-500 to-primary-600 rounded-xl font-semibold text-white glow hover:scale-105 transition-all duration-300">
+          Convert to Markdown
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="py-20 px-4 sm:px-6 lg:px-8 bg-dark-800/30">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl sm:text-4xl font-bold mb-4">Why CSV to Markdown Pro?</h2>
+        <p class="text-gray-400 max-w-2xl mx-auto">Professional-grade conversion with developer-friendly features</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="feature-card glass rounded-2xl p-8">
+          <div class="w-12 h-12 bg-primary-500/20 rounded-xl flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">Lightning Fast</h3>
+          <p class="text-gray-400">Convert CSV to Markdown in milliseconds. Handles large files with thousands of rows effortlessly.</p>
+        </div>
+        <div class="feature-card glass rounded-2xl p-8">
+          <div class="w-12 h-12 bg-primary-500/20 rounded-xl flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">100% Accurate</h3>
+          <p class="text-gray-400">Smart parsing handles commas, quotes, and special characters. Your data stays intact.</p>
+        </div>
+        <div class="feature-card glass rounded-2xl p-8">
+          <div class="w-12 h-12 bg-primary-500/20 rounded-xl flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">Fully Customizable</h3>
+          <p class="text-gray-400">Choose alignment, add padding, customize separators. Make tables match your style.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Use Cases -->
+  <section class="py-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl sm:text-4xl font-bold mb-4">Perfect For</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="glass rounded-xl p-6 text-center">
+          <div class="text-4xl mb-4">📄</div>
+          <h4 class="font-semibold mb-2">README Files</h4>
+          <p class="text-sm text-gray-400">Create beautiful data tables in GitHub READMEs</p>
+        </div>
+        <div class="glass rounded-xl p-6 text-center">
+          <div class="text-4xl mb-4">📊</div>
+          <h4 class="font-semibold mb-2">Documentation</h4>
+          <p class="text-sm text-gray-400">Add structured data to your docs</p>
+        </div>
+        <div class="glass rounded-xl p-6 text-center">
+          <div class="text-4xl mb-4">📈</div>
+          <h4 class="font-semibold mb-2">Reports</h4>
+          <p class="text-sm text-gray-400">Convert exports to readable tables</p>
+        </div>
+        <div class="glass rounded-xl p-6 text-center">
+          <div class="text-4xl mb-4">📝</div>
+          <h4 class="font-semibold mb-2">Note Taking</h4>
+          <p class="text-sm text-gray-400">Organize data in Markdown notes</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing" class="py-20 px-4 sm:px-6 lg:px-8 bg-dark-800/30">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl sm:text-4xl font-bold mb-4">Simple Pricing</h2>
+      <p class="text-gray-400 mb-12">One-time payment, lifetime access</p>
+      <div class="glass rounded-2xl p-8 max-w-md mx-auto relative overflow-hidden">
+        <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary-400 to-primary-600"></div>
+        <div class="text-5xl font-bold mb-2">$9</div>
+        <div class="text-gray-400 mb-6">One-time purchase</div>
+        <ul class="text-left space-y-3 mb-8">
+          <li class="flex items-center gap-3"><svg class="w-5 h-5 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Unlimited conversions</li>
+          <li class="flex items-center gap-3"><svg class="w-5 h-5 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Large file support</li>
+          <li class="flex items-center gap-3"><svg class="w-5 h-5 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Custom formatting options</li>
+          <li class="flex items-center gap-3"><svg class="w-5 h-5 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>API access</li>
+          <li class="flex items-center gap-3"><svg class="w-5 h-5 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Lifetime updates</li>
+        </ul>
+        <button id="buyBtn" class="w-full py-4 bg-gradient-to-r from-primary-500 to-primary-600 rounded-xl font-semibold text-white glow hover:scale-105 transition-all duration-300">
+          Get Pro Access
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-3xl font-bold text-center mb-12">FAQ</h2>
+      <div class="space-y-4">
+        <div class="glass rounded-xl p-6">
+          <h4 class="font-semibold mb-2">Is my data secure?</h4>
+          <p class="text-gray-400 text-sm">Yes! All conversions happen in your browser. Your CSV data never leaves your computer.</p>
+        </div>
+        <div class="glass rounded-xl p-6">
+          <h4 class="font-semibold mb-2">What's the file size limit?</h4>
+          <p class="text-gray-400 text-sm">Pro users can convert files up to 10MB with unlimited rows. Free demo supports smaller files.</p>
+        </div>
+        <div class="glass rounded-xl p-6">
+          <h4 class="font-semibold mb-2">Can I customize the table format?</h4>
+          <p class="text-gray-400 text-sm">Yes! Pro version lets you customize alignment, padding, and separator styles.</p>
+        </div>
+        <div class="glass rounded-xl p-6">
+          <h4 class="font-semibold mb-2">Do I get updates?</h4>
+          <p class="text-gray-400 text-sm">Absolutely. One-time purchase includes lifetime updates and new features.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-12 px-4 sm:px-6 lg:px-8 border-t border-white/10">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex items-center space-x-2">
+        <div class="w-8 h-8 bg-gradient-to-br from-primary-400 to-primary-600 rounded-lg flex items-center justify-center">
+          <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+          </svg>
+        </div>
+        <span class="text-lg font-bold">CSV to Markdown Pro</span>
+      </div>
+      <p class="text-gray-500 text-sm">2025 CSV to Markdown Pro. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // CSV to Markdown converter
+    function csvToMarkdown(csv, delimiter = ',', hasHeader = true) {
+      const lines = csv.trim().split('\n');
+      if (lines.length === 0) return '';
+
+      const rows = lines.map(line => {
+        const result = [];
+        let current = '';
+        let inQuotes = false;
+
+        for (let i = 0; i < line.length; i++) {
+          const char = line[i];
+          if (char === '"') {
+            if (inQuotes && line[i + 1] === '"') {
+              current += '"';
+              i++;
+            } else {
+              inQuotes = !inQuotes;
+            }
+          } else if (char === delimiter && !inQuotes) {
+            result.push(current.trim());
+            current = '';
+          } else {
+            current += char;
+          }
+        }
+        result.push(current.trim());
+        return result;
+      });
+
+      if (rows.length === 0) return '';
+
+      // Calculate column widths
+      const colCount = Math.max(...rows.map(r => r.length));
+      const widths = [];
+      for (let i = 0; i < colCount; i++) {
+        widths.push(Math.max(...rows.map(r => (r[i] || '').length), 3));
+      }
+
+      // Build markdown
+      const formatRow = (row) => '| ' + row.map((cell, i) => (cell || '').padEnd(widths[i])).join(' | ') + ' |';
+
+      let md = formatRow(rows[0]) + '\n';
+      md += '| ' + widths.map(w => '-'.repeat(w)).join(' | ') + ' |\n';
+
+      for (let i = 1; i < rows.length; i++) {
+        md += formatRow(rows[i]) + '\n';
+      }
+
+      return md;
+    }
+
+    // Demo functionality
+    const csvInput = document.getElementById('csvInput');
+    const mdOutput = document.getElementById('mdOutput');
+    const convertBtn = document.getElementById('convertBtn');
+    const copyBtn = document.getElementById('copyBtn');
+
+    convertBtn.addEventListener('click', () => {
+      const csv = csvInput.value.trim();
+      if (!csv) {
+        mdOutput.value = 'Please enter some CSV data first.';
+        return;
+      }
+      try {
+        const md = csvToMarkdown(csv);
+        mdOutput.value = md;
+      } catch (e) {
+        mdOutput.value = 'Error: ' + e.message;
+      }
+    });
+
+    copyBtn.addEventListener('click', () => {
+      mdOutput.select();
+      document.execCommand('copy');
+      copyBtn.textContent = 'Copied!';
+      setTimeout(() => copyBtn.textContent = 'Copy', 2000);
+    });
+
+    // Auto-convert on input
+    csvInput.addEventListener('input', () => {
+      const csv = csvInput.value.trim();
+      if (csv) {
+        try {
+          mdOutput.value = csvToMarkdown(csv);
+        } catch (e) {}
+      }
+    });
+
+    // Buy button
+    const CHECKOUT_URL = window.__CHECKOUT_URL || null;
+    document.getElementById('buyBtn').addEventListener('click', () => {
+      if (CHECKOUT_URL) window.open(CHECKOUT_URL, '_blank');
+      else alert('Store coming soon! Contact support for early access.');
+    });
+  </script>
+</body>
+</html>
