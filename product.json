@@ -11,12 +11,12 @@
   "github_url": null,
   "lemonsqueezy_product_id": null,
   "webhook_url": null,
-  "created_cycle": null,
+  "created_cycle": 1116,
   "deployed_cycle": null,
-  "checkout_url": "https://buy.polar.sh/polar_cl_Vn7x0BmLPg6A6J0v9NKagbk8hJxOK6tJ1o5de3d7HK2",
+  "checkout_url": "https://buy.polar.sh/polar_cl_q5yvmRLaDm8Z4L1YFoGlSn7LtKFQCPKf2YGcU4YNDL1",
   "spec_version": "1.0",
   "payment_provider": "polar",
   "polar_product_id": "2cc274e9-9c0a-43ed-93fb-fb171b8593ab",
   "polar_product_price_id": "1f825ab9-8e2a-4321-9370-ff6bb430dbf2",
-  "polar_checkout_link_id": "88ab3b0b-e657-451f-a98e-feb84de5ccb6"
+  "polar_checkout_link_id": "a6e8beda-10f2-46c8-8444-8dfadb8dbe23"
 }
